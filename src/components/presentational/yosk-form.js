@@ -3,6 +3,7 @@ import {inject, observer} from 'mobx-react';
 import {AutoComplete, InputNumber, Button, Skeleton} from 'antd';
 import JSONInput from "react-json-editor-ajrm";
 import locale from 'react-json-editor-ajrm/locale/en';
+import _debounce from 'lodash/debounce';
 
 const Option = AutoComplete.Option;
 
@@ -27,7 +28,7 @@ class YoskForm extends React.Component {
             let name = type === 'routes' ? route.controller : route;
             name = name.replace('_', ' ');
 
-            if (name.toLowerCase().includes(value.toLowerCase()) && results.length < 20) {
+            if (name.toLowerCase().includes(value.toLowerCase()) && results.length < 10) {
                 results.push(route);
             }
         });
@@ -52,6 +53,12 @@ class YoskForm extends React.Component {
         });
     };
 
+    onControllerSearch = (value) => {
+        const results = this.handleSearch(value, 'routes');
+        this.setState({controllerResults: results});
+    };
+
+
     render() {
         const {isLoading} = this.props.routesStore;
 
@@ -61,10 +68,7 @@ class YoskForm extends React.Component {
                     <AutoComplete
                         style={{width: '100%'}}
                         placeholder="Select Controller"
-                        onSearch={(value) => {
-                            const results = this.handleSearch(value, 'routes');
-                            this.setState({controllerResults: results});
-                        }}
+                        onSearch={_debounce(this.onControllerSearch, 300)}
                         onSelect={this.onSelect}
                     >
                         {this.state.controllerResults.map((route, i) => <Option key={i}>{route.controller}</Option>)}
