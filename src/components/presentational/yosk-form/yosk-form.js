@@ -113,7 +113,7 @@ class YoskForm extends React.Component {
                     />
                 </div>
                 <div className="input-padding">
-                    <Button onClick={this.createYosk}>Send</Button>
+                    <Button style={{width: '100%'}} onClick={this.createYosk}>Send</Button>
                 </div>
             </>
 
