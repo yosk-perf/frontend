@@ -13,7 +13,7 @@ export default class Log {
     }
 
     @computed
-    getLog() {
+    get getLog() {
         return this.log;
     }
 }

@@ -12,6 +12,8 @@ export default class Yosk {
     @observable queries;
     @observable status;
 
+    executionId = null;
+
     constructor(details, log, memoryProfiler, queries) {
         this.setYosk({
             details,
@@ -30,7 +32,7 @@ export default class Yosk {
     }
 
     @computed
-    getYosk() {
+    get getYosk() {
         return {
             log: this.log,
             details: this.details,

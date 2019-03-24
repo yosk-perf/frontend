@@ -1,4 +1,4 @@
-import { observable, action} from "mobx"
+import { observable, action, computed} from "mobx"
 import Yosk from "../domain-objects/yosk";
 
 export default class YoskStore {
@@ -8,5 +8,10 @@ export default class YoskStore {
     addYosk(yosk) {
         const newYosk = new Yosk(yosk);
         this.yosks.push(newYosk);
+    }
+
+    @computed
+    getYosks() {
+        return this.yosks;
     }
 }

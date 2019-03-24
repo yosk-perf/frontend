@@ -13,7 +13,7 @@ export default class MemoryProfiler {
     }
 
     @computed
-    setText() {
+    get setText() {
         return this.text;
     }
 }

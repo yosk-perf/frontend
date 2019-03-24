@@ -15,7 +15,7 @@ export default class Details {
     }
 
     @computed
-    getDetails() {
+    get getDetails() {
         return {
             totalDuration: this.totalDuration,
             instrumentation: this.instrumentation
