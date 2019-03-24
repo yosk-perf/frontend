@@ -64,9 +64,13 @@ export default class Yosk {
             clearInterval(this.interval);
             notification.error({
                 message: 'Error',
+                placement: 'bottomRight',
                 description: resp.data.error_message,
                 duration: 99999999
             });
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000);
         }
 
         this.status = status;
