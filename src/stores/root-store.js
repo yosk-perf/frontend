@@ -6,3 +6,6 @@ class RootStore {
         console.log(this, 'mobx store inited!');
     }
 }
+
+
+export default new RootStore();
