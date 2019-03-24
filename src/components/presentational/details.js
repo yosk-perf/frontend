@@ -1,5 +1,6 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
+import {Spin} from 'antd';
 
 @inject('yosksStore')
 @observer
@@ -19,7 +20,7 @@ class Details extends React.Component {
                     : null}
                 <div>{details.allocationsCount}</div>
             </div>
-        : null;
+        : <Spin />;
     }
 }
 

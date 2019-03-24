@@ -3,6 +3,7 @@ import {inject, observer} from 'mobx-react';
 import {Spin} from 'antd';
 import {YOSK_STATUS} from "../../stores/domain-objects/yosk";
 import Details from "./details";
+import Response from "./response";
 
 @inject('yosksStore')
 @observer
@@ -14,6 +15,7 @@ class Results extends React.Component {
         return doneLoading ?
             <div>
                 <Details/>
+                <Response/>
             </div>
             :
             <Spin/>;
