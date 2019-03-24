@@ -12,12 +12,10 @@ class Logs extends React.Component {
         const logs = yosk.logs;
 
         return (
-            <CustomCard>
+            <CustomCard cardClass="Log">
                 {logs.length ?
-                    <div>
-                        <LogTable data={logs.map(log => log.log)}/>
-                    </div>
-                    : <Skeleton active={true} />}
+                   <LogTable data={logs.map(log => log.log)}/>
+                   : <Skeleton active={true} />}
             </CustomCard>
         )
     }

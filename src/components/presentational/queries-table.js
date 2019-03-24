@@ -24,7 +24,9 @@ const columns = [
             return (
                 <div>
                     <Hightlight language="SQL">
-                        {query}
+                        <pre style={{whiteSpace: 'pre-line'}}>
+                            {query}
+                        </pre>
                     </Hightlight>
                 </div>
             )

@@ -52,7 +52,7 @@ const columns = [
 const LogTable = ({data}) => {
     return (
         <CustomCard title={"Execution Log"}>
-            <Table rowKey="id" columns={columns} dataSource={data} pagination={false}/>
+            <Table rowKey="id" columns={columns} dataSource={data} pagination={false} scroll={{ x: true}}/>
         </CustomCard>
     );
 };
