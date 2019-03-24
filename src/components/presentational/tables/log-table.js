@@ -21,7 +21,7 @@ const columns = [
         title: 'Timestamp',
         dataIndex: 'timestamp',
         key: 'timestamp',
-        sorter: (a, b) => (new Date(a.timestamp) - new Date(b.timestamp)),
+        sorter: (a, b) => (new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()),
         sortDirections: ['descend', 'ascend'],
         render: date => new Date(date).toLocaleString().split(',')[1]
     },
