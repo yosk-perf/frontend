@@ -2,16 +2,16 @@ import { observable, action, computed} from "mobx"
 import Yosk from "../domain-objects/yosk";
 
 export default class YoskStore {
-    @observable yosks = []
+    @observable yosk;
 
     @action
-    addYosk(yosk) {
-        const newYosk = new Yosk(yosk);
-        this.yosks.push(newYosk);
+    addYosk(yoskRequest) {
+        const newYosk = new Yosk(yoskRequest);
+        this.yosk = newYosk;
     }
 
     @computed
-    getYosks() {
-        return this.yosks;
+    get getYosk() {
+        return this.yosk;
     }
 }

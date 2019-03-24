@@ -3,30 +3,30 @@ import GlobalConfig from '../config/global-config';
 
 export default class YoskService {
     static execute(yoskData) {
-        return axios.post(`${GlobalConfig.API_URL}/execute`, yoskData);
+        return axios.post(`${GlobalConfig.API_URL}/execution`, yoskData);
     }
 
     static getExecutionStatus(executionId) {
-        return axios.get(`${GlobalConfig.API_URL}/${executionId}/status`);
+        return axios.get(`${GlobalConfig.API_URL}/execution/${executionId}/status`);
     }
 
     static getDetails(executionId) {
-        return axios.get(`${GlobalConfig.API_URL}/${executionId}/details`);
+        return axios.get(`${GlobalConfig.API_URL}/execution/${executionId}/details`);
     }
 
     static getResponse(executionId) {
-        return axios.get(`${GlobalConfig.API_URL}/${executionId}/response`);
+        return axios.get(`${GlobalConfig.API_URL}/execution/${executionId}/response`);
     }
 
     static getlogs(executionId) {
-        return axios.get(`${GlobalConfig.API_URL}/${executionId}/logs`);
+        return axios.get(`${GlobalConfig.API_URL}/execution/${executionId}/logs`);
     }
 
     static getMemoryProfiler(executionId) {
-        return axios.get(`${GlobalConfig.API_URL}/${executionId}/memory_profiler`);
+        return axios.get(`${GlobalConfig.API_URL}/execution/${executionId}/memory_profiler`);
     }
 
     static getQueries(executionId) {
-        return axios.get(`${GlobalConfig.API_URL}/${executionId}/queries`);
+        return axios.get(`${GlobalConfig.API_URL}/execution/${executionId}/queries`);
     }
 }
