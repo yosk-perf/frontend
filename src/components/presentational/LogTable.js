@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, Tag } from 'antd';
 
+import CustomCard from './CustomCard';
+
 const getLogLevelColor = (logLevel) => {
   switch (logLevel) {
       case  'Error':
@@ -80,9 +82,9 @@ const mockData = [{
 
 const LogTable = ({data}) => {
     return (
-        <div>
+        <CustomCard title={"Execution Log"}>
             <Table columns={columns} dataSource={mockData}  pagination={false}/>
-        </div>
+        </CustomCard>
     );
 };
 

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 
 import particlesConfig from './config/particles-config';
+import AppContent from './components/presentational/AppContent';
 import NavBar from './components/presentational/NavBar';
+
 import './App.css';
 
 
@@ -11,6 +13,9 @@ class App extends Component {
     return (
       <div className="App">
         <Particles params={particlesConfig} className="particles" />
+          <AppContent className="App-content">
+              {/* Place here all cards*/}
+          </AppContent>
         <NavBar />
       </div>
     );
