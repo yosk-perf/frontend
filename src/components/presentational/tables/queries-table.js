@@ -12,11 +12,6 @@ const columns = [
         render: duration => `${duration.toFixed(2)}ms`
     },
     {
-        title: 'Name',
-        key: 'name',
-        dataIndex: 'name'
-    },
-    {
         title: 'Query',
         dataIndex: 'query',
         key: 'query',
@@ -24,7 +19,7 @@ const columns = [
             return (
                 <div>
                     <Hightlight language="SQL">
-                        <pre style={{whiteSpace: 'pre-line'}}>
+                        <pre style={{whiteSpace: 'pre-line', fontFamily: "'Inconsolata', monospace", fontSize: 14}}>
                             {query}
                         </pre>
                     </Hightlight>

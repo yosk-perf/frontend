@@ -42,7 +42,7 @@ const columns = [
         dataIndex: 'messagePayload',
         key: 'messagePayload',
         render: message => (
-            <div style={{fontFamily: "'Inconsolata', monospace"}}>
+            <div style={{whiteSpace: 'pre-line', fontFamily: "'Inconsolata', monospace"}}>
                 <span>{message}</span>
             </div>
         )
