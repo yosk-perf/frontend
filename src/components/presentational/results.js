@@ -2,6 +2,7 @@ import React from 'react';
 import Details from "./details";
 import MemoryProfiler from "./memory-profiler";
 import Response from "./response";
+import { YOSK_STATUS} from "../../stores/domain-objects/yosk";
 
 import './result.css';
 
@@ -16,8 +17,7 @@ class Results extends React.Component {
                 <MemoryProfiler/>
                 <Details/>
                 <Response/>
-            </div>
-        )
+            </div> : <React.Fragment />
     }
 }
 
