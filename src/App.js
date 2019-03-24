@@ -3,8 +3,6 @@ import Particles from 'react-particles-js';
 
 import particlesConfig from './config/particles-config';
 import NavBar from './components/presentational/NavBar';
-import LogTable from './components/presentational/LogTable';
-
 import './App.css';
 
 

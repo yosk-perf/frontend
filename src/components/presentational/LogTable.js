@@ -28,6 +28,11 @@ const columns = [
         title: 'Message',
         dataIndex: 'messagePayload',
         key: 'messagePayload',
+        render: message => (
+            <div style={{fontFamily: "'Inconsolata', monospace"}}>
+                <span>{message}</span>
+            </div>
+        )
     },
     {
     title: 'Log Level',
