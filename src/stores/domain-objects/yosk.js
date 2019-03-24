@@ -14,7 +14,7 @@ export const YOSK_STATUS = {
 
 export default class Yosk {
     @observable details;
-    @observable log;
+    @observable logs = [];
     @observable memoryProfiler;
     @observable queries;
     @observable status;
@@ -72,9 +72,14 @@ export default class Yosk {
         this.response = new Response(resp.data);
     }
 
+    setLogs = (resp) => {
+        this.logs = resp.data.map(log => new Log(log));
+    }
+
     async getResults() {
         YoskService.getDetails(this.executionId).then(this.setDetails);
         YoskService.getMemoryProfiler(this.executionId).then(this.setMemoryProfiler);
         YoskService.getResponse(this.executionId).then(this.setResponse);
+        YoskService.getlogs(this.executionId).then(this.setLogs);
     }
 }
