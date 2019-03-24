@@ -1,7 +1,11 @@
 export default class Log {
-    log;
+    timestamp;
+    logLevel;
+    messagePayload;
 
     constructor(log) {
-        this.log = log;
+        this.timestamp = log.timestamp;
+        this.logLevel = log.logLevel;
+        this.messagePayload = log.messagePayload;
     }
 }
