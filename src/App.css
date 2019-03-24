@@ -1,5 +1,33 @@
+html {
+  height: 100%;
+
+}
+
+body {
+  height: 100%
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
+  display: flex;
+  height: 100%;
+  justify-content: center;
   text-align: center;
+}
+
+.particles {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .App-logo {
@@ -10,7 +38,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
