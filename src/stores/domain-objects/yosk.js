@@ -4,6 +4,7 @@ import Details from "./details";
 import MemoryProfiler from "./memory_profiler";
 import Queries from "./queries";
 import YoskService from "../../services/yosk_service";
+import Response from "./response";
 
 export const YOSK_STATUS = {
     COMPLETED: 'completed',
@@ -66,9 +67,14 @@ export default class Yosk {
     setMemoryProfiler = (resp) => {
         this.memoryProfiler = new MemoryProfiler(resp.data);
     }
+    
+    setResponse = (resp) => {
+        this.response = new Response(resp.data);
+    }
 
     async getResults() {
         YoskService.getDetails(this.executionId).then(this.setDetails);
         YoskService.getMemoryProfiler(this.executionId).then(this.setMemoryProfiler);
+        YoskService.getResponse(this.executionId).then(this.setResponse);
     }
 }

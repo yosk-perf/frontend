@@ -1,6 +1,6 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
-import {AutoComplete, InputNumber, Input, Button} from 'antd';
+import {AutoComplete, InputNumber, Spin, Button, Skeleton} from 'antd';
 import JSONInput from "react-json-editor-ajrm";
 
 const Option = AutoComplete.Option;
@@ -54,12 +54,12 @@ class YoskForm extends React.Component {
     render() {
         const {isLoading} = this.props.routesStore;
 
-        return isLoading ? null : (
+        return isLoading ? <Skeleton active={true}/> : (
             <>
-               <div>
+               <div className="input-padding">
                    <AutoComplete
-                       style={{width: 200}}
-                       placeholder="input here"
+                       style={{width: '100%'}}
+                       placeholder="Select Controller"
                        onSearch={(value) => {
                            const results = this.handleSearch(value, 'routes');
                            this.setState({controllerResults: results});
@@ -69,11 +69,11 @@ class YoskForm extends React.Component {
                        { this.state.controllerResults.map((route, i) => <Option key={i}>{route.controller}</Option>)}
                    </AutoComplete>
                </div>
-               <div>
+               <div className="input-padding">
                    <AutoComplete
                        disabled={!this.state.selectedYosk}
-                       style={{width: 200}}
-                       placeholder="input here"
+                       style={{width: '100%'}}
+                       placeholder="Select Action"
                        onSearch={(value) => {
                            const results = this.handleSearch(value, 'actions');
                            this.setState({actionResults: results});
@@ -83,10 +83,10 @@ class YoskForm extends React.Component {
                        { this.state.selectedYosk ? this.state.actionResults.map((action, i) => <Option key={i}>{action}</Option>) : null}
                    </AutoComplete>
                </div>
-                <div>
+                <div className="input-padding">
                     <InputNumber onChange={(value) => {this.setState({userId: value})}} value={this.state.userId}/>
                 </div>
-                <div style={{ maxWidth: "1400px", maxHeight: "100%" }}>
+                <div className="input-padding" style={{ maxWidth: "1400px", maxHeight: "100%", border: "1px solid #e3e3e3", borderRadius: "5px" }}>
                     <JSONInput
                         theme="light_mitsuketa_tribute"
                         placeholder={{"example": "Enter your JSON"}}
@@ -98,7 +98,7 @@ class YoskForm extends React.Component {
                         onChange={({jsObject}) => { if(jsObject) {this.setState({params: jsObject})}}} value={this.state.params}
                     />
                 </div>
-                <div>
+                <div className="input-padding">
                     <Button onClick={this.createYosk}>Send</Button>
                 </div>
             </>
