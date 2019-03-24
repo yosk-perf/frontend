@@ -2,7 +2,7 @@ import { observable, computed, action, runInAction} from "mobx"
 import Log from "./log";
 import Details from "./details";
 import MemoryProfiler from "./memory_profiler";
-import Queries from "./queries";
+import Query from "./query";
 import YoskService from "../../services/yosk_service";
 import Response from "./response";
 
@@ -16,7 +16,7 @@ export default class Yosk {
     @observable details;
     @observable logs = [];
     @observable memoryProfiler;
-    @observable queries;
+    @observable queries = [];
     @observable status;
     @observable response;
 
@@ -76,10 +76,15 @@ export default class Yosk {
         this.logs = resp.data.map(log => new Log(log));
     }
 
+    setQuries = (resp) => {
+        this.queries = resp.data.map(query => new Query(query));
+    }
+
     async getResults() {
         YoskService.getDetails(this.executionId).then(this.setDetails);
         YoskService.getMemoryProfiler(this.executionId).then(this.setMemoryProfiler);
         YoskService.getResponse(this.executionId).then(this.setResponse);
         YoskService.getlogs(this.executionId).then(this.setLogs);
+        YoskService.getQueries(this.executionId).then(this.setQuries);
     }
 }
