@@ -63,7 +63,12 @@ export default class Yosk {
         this.details = new Details(resp.data);
     }
 
+    setMemoryProfiler = (resp) => {
+        this.memoryProfiler = new MemoryProfiler(resp.data);
+    }
+
     async getResults() {
         YoskService.getDetails(this.executionId).then(this.setDetails);
+        YoskService.getMemoryProfiler(this.executionId).then(this.setMemoryProfiler);
     }
 }

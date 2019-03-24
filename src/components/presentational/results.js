@@ -3,6 +3,9 @@ import {inject, observer} from 'mobx-react';
 import {Spin} from 'antd';
 import {YOSK_STATUS} from "../../stores/domain-objects/yosk";
 import Details from "./details";
+import MemoryProfiler from "./memory-profiler";
+
+import './result.css';
 
 @inject('yosksStore')
 @observer
@@ -12,8 +15,9 @@ class Results extends React.Component {
         const doneLoading = yosk.status === YOSK_STATUS.COMPLETED;
 
         return doneLoading ?
-            <div>
+            <div className="Result">
                 <Details/>
+                <MemoryProfiler/>
             </div>
             :
             <Spin/>;
