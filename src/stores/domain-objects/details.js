@@ -1,24 +1,11 @@
-import { observable, computed, action} from "mobx"
-
 export default class Details {
-    @observable totalDuration;
-    @observable instrumentation;
+    totalDuration;
+    instrumentation;
+    allocationsCount;
 
     constructor(details) {
-        this.setDetails(details.totalDuration, details.instrumentation);
-    }
-
-    @action
-    setDetails(totalDuration, instrumentation) {
-        this.totalDuration = totalDuration;
-        this.instrumentation = instrumentation;
-    }
-
-    @computed
-    get getDetails() {
-        return {
-            totalDuration: this.totalDuration,
-            instrumentation: this.instrumentation
-        }
+        this.totalDuration = details.total_duration;
+        this.instrumentation = details.instrumentation;
+        this.allocationsCount = details.allocations_count;
     }
 }

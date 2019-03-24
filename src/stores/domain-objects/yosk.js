@@ -17,6 +17,7 @@ export default class Yosk {
     @observable memoryProfiler;
     @observable queries;
     @observable status;
+    @observable response;
 
     executionId = null;
     interval = null;
@@ -44,13 +45,12 @@ export default class Yosk {
         YoskService.getExecutionStatus(this.executionId).then(this.updateStatus);
     }
 
-    @action
     updateStatus = (resp) => {
         const status = resp.data.status;
 
         if (status === YOSK_STATUS.COMPLETED) {
             clearInterval(this.interval);
-            this.initSomeFlowFetchingEverything();
+            this.getResults();
         }
         if (status === YOSK_STATUS.FAILED) {
             clearInterval(this.interval);
@@ -59,7 +59,11 @@ export default class Yosk {
         this.status = status;
     }
 
-    initSomeFlowFetchingEverything() {
+    setDetails = (resp) => {
+        this.details = new Details(resp.data);
+    }
 
+    async getResults() {
+        YoskService.getDetails(this.executionId).then(this.setDetails);
     }
 }
