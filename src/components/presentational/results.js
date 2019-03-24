@@ -1,11 +1,15 @@
 import React from 'react';
+import {inject, observer} from 'mobx-react';
 import Details from "./details";
 import MemoryProfiler from "./memory-profiler";
+import {Spin} from 'antd';
 import Response from "./response";
 import { YOSK_STATUS} from "../../stores/domain-objects/yosk";
 
 import './result.css';
 
+@inject('yosksStore')
+@observer
 class Results extends React.Component {
     render() {
         const {yosk} = this.props.yosksStore;
@@ -17,7 +21,7 @@ class Results extends React.Component {
                 <MemoryProfiler/>
                 <Details/>
                 <Response/>
-            </div> : <React.Fragment />
+            </div> : <Spin/>
     }
 }
 
