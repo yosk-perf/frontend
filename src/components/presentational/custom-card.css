@@ -1,3 +1,7 @@
 .CustomCard {
-    background-color: rgba(255, 255, 255, 0.82) !important;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 1px 0px #dcdcdc;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.82);
 }

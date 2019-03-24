@@ -1,6 +1,7 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 import {AutoComplete, InputNumber, Input, Button} from 'antd';
+import JSONInput from "react-json-editor-ajrm";
 
 const Option = AutoComplete.Option;
 
@@ -14,7 +15,7 @@ class YoskForm extends React.Component {
         selectedYosk: null,
         selectedAction: '',
         userId: null,
-        params: ''
+        params: {}
     };
 
     handleSearch = (value, type) => {
@@ -46,7 +47,7 @@ class YoskForm extends React.Component {
           request_controller: this.state.selectedYosk.controller,
           request_action: this.state.selectedAction,
           user_id: this.state.userId,
-          params: {}
+          params: this.state.params
       });
     };
 
@@ -84,8 +85,17 @@ class YoskForm extends React.Component {
                 <div>
                     <InputNumber onChange={(value) => {this.setState({userId: value})}} value={this.state.userId}/>
                 </div>
-                <div>
-                    <Input.TextArea onChange={(e) => {this.setState({params: e.target.value})}} value={this.state.params}/>
+                <div style={{ maxWidth: "1400px", maxHeight: "100%" }}>
+                    <JSONInput
+                        theme="light_mitsuketa_tribute"
+                        placeholder={{"example": "Enter your JSON"}}
+                        colors={{
+                            string: "#DAA520" // overrides theme colors with whatever color value you want
+                        }}
+                        jsObject={this.state.params}
+                        height="300px"
+                        onChange={({jsObject}) => { if(jsObject) {this.setState({params: jsObject})}}} value={this.state.params}
+                    />
                 </div>
                 <div>
                     <Button onClick={this.createYosk}>Send</Button>
