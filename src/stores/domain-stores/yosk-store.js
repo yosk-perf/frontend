@@ -5,13 +5,13 @@ export default class YoskStore {
     @observable yosks = []
 
     @action
-    addYosk(yosk) {
-        const newYosk = new Yosk(yosk);
+    addYosk(yoskRequest) {
+        const newYosk = new Yosk(yoskRequest);
         this.yosks.push(newYosk);
     }
 
     @computed
-    getYosks() {
+    get getYosks() {
         return this.yosks;
     }
 }
