@@ -7,7 +7,7 @@ import './custom-card.css';
 const CustomCard = ({title = "", loading = false, cardClass, children}) => {
     const mergedStyle = cardClass ? classNames('CustomCard', cardClass) : 'CustomCard';
     return (
-        <div className={mergedStyle} loading={loading}>
+        <div className={mergedStyle}>
             {children}
         </div>
     )

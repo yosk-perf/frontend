@@ -13,6 +13,7 @@ class Response extends React.Component {
         return response ? <JSONInput
             theme="light_mitsuketa_tribute"
             placeholder={response}
+            viewOnly={true}
             colors={{
                 string: "#DAA520" // overrides theme colors with whatever color value you want
             }}

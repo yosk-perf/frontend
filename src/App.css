@@ -54,6 +54,7 @@ body {
 
 .App-content {
   height: 90%;
+  width: 100%;
 }
 
 @keyframes App-logo-spin {
