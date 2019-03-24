@@ -4,6 +4,7 @@ import Particles from 'react-particles-js';
 import particlesConfig from './config/particles-config';
 import AppContent from './components/presentational/AppContent';
 import NavBar from './components/presentational/NavBar';
+import LogTable from './components/presentational/LogTable';
 
 import './App.css';
 
@@ -14,7 +15,7 @@ class App extends Component {
       <div className="App">
         <Particles params={particlesConfig} className="particles" />
           <AppContent className="App-content">
-              {/* Place here all cards*/}
+              <LogTable />
           </AppContent>
         <NavBar />
       </div>
