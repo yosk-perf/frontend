@@ -49,10 +49,19 @@ export default class Yosk {
         const status = resp.data.status;
 
 
-        if (status === YOSK_STATUS.COMPLETED || status === YOSK_STATUS.FAILED) {
+        if (status === YOSK_STATUS.COMPLETED) {
             clearInterval(this.interval);
-            this.status = status;
+            this.initSomeFlowFetchingEverything();
         }
+        if (status === YOSK_STATUS.FAILED) {
+            clearInterval(this.interval);
+        }
+
+        this.status = status;
+    }
+
+    initSomeFlowFetchingEverything() {
+
     }
 
     @action
