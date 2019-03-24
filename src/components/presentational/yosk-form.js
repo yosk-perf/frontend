@@ -70,6 +70,7 @@ class YoskForm extends React.Component {
                </div>
                <div>
                    <AutoComplete
+                       disabled={!this.state.selectedYosk}
                        style={{width: 200}}
                        placeholder="input here"
                        onSearch={(value) => {
