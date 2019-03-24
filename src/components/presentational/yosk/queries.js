@@ -1,8 +1,8 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 import {Skeleton} from 'antd';
-import CustomCard from "./custom-card";
-import QueriesTable from "./queries-table";
+import CustomCard from "../custom-card/custom-card";
+import QueriesTable from "../tables/queries-table";
 
 @inject('yosksStore')
 @observer

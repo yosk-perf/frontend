@@ -1,7 +1,7 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 import {Skeleton} from 'antd';
-import CustomCard from "./custom-card";
+import CustomCard from "../custom-card/custom-card";
 
 @inject('yosksStore')
 @observer
