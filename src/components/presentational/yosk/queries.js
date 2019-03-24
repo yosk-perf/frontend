@@ -12,7 +12,7 @@ class Queries extends React.Component {
         const queries = yosk.queries;
 
         return (
-            <CustomCard cardClass="Queries">
+            <CustomCard cardClass="Queries" title="Queries">
                 {queries.length ?
                     <div>
                         {<QueriesTable data={queries}/>}
