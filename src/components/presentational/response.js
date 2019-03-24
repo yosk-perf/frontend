@@ -1,6 +1,6 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
-import {Spin} from 'antd';
+import {Skeleton} from 'antd';
 import JSONInput from "react-json-editor-ajrm";
 
 @inject('yosksStore')
@@ -18,7 +18,7 @@ class Response extends React.Component {
                 string: "#DAA520" // overrides theme colors with whatever color value you want
             }}
             height="300px"
-        /> : <Spin />;
+        /> : <Skeleton active={true} />;
     }
 }
 
