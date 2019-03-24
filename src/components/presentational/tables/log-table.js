@@ -22,7 +22,8 @@ const columns = [
         dataIndex: 'timestamp',
         key: 'timestamp',
         sorter: (a, b) => (new Date(a.timestamp) - new Date(b.timestamp)),
-        sortDirections: ['descend', 'ascend']
+        sortDirections: ['descend', 'ascend'],
+        render: date => new Date(date).toLocaleString().split(',')[1]
     },
     {
         title: 'Log Level',
@@ -50,9 +51,7 @@ const columns = [
 
 const LogTable = ({data}) => {
     return (
-        <CustomCard title={"Execution Log"}>
-            <Table scroll={{x: true, y: 400}} rowKey="id" columns={columns} dataSource={data} pagination={false}/>
-        </CustomCard>
+        <Table scroll={{x: true, y: 400}} rowKey="id" columns={columns} dataSource={data} pagination={false}/>
     );
 };
 
