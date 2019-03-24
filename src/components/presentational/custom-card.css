@@ -1,6 +1,7 @@
 .CustomCard {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     box-shadow: 0px 0px 1px 0px #dcdcdc;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.82);
