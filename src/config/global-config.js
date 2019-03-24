@@ -7,5 +7,7 @@ export default class GlobalConfig {
             // ADD URL IN PROD IN FUTURE
             return '';
         }
+
+        return '';
     }
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
-import {AutoComplete, InputNumber, Spin, Button, Skeleton} from 'antd';
+import {AutoComplete, InputNumber, Button, Skeleton} from 'antd';
 import JSONInput from "react-json-editor-ajrm";
+import locale from 'react-json-editor-ajrm/locale/en';
 
 const Option = AutoComplete.Option;
 
@@ -43,12 +44,12 @@ class YoskForm extends React.Component {
     };
 
     createYosk = () => {
-      this.props.yosksStore.addYosk({
-          request_controller: this.state.selectedYosk.controller,
-          request_action: this.state.selectedAction,
-          user_id: this.state.userId,
-          params: this.state.params
-      });
+        this.props.yosksStore.addYosk({
+            request_controller: this.state.selectedYosk.controller,
+            request_action: this.state.selectedAction,
+            user_id: this.state.userId,
+            params: this.state.params
+        });
     };
 
     render() {
@@ -56,37 +57,41 @@ class YoskForm extends React.Component {
 
         return isLoading ? <Skeleton active={true}/> : (
             <>
-               <div className="input-padding">
-                   <AutoComplete
-                       style={{width: '100%'}}
-                       placeholder="Select Controller"
-                       onSearch={(value) => {
-                           const results = this.handleSearch(value, 'routes');
-                           this.setState({controllerResults: results});
-                       }}
-                       onSelect={this.onSelect}
-                   >
-                       { this.state.controllerResults.map((route, i) => <Option key={i}>{route.controller}</Option>)}
-                   </AutoComplete>
-               </div>
-               <div className="input-padding">
-                   <AutoComplete
-                       disabled={!this.state.selectedYosk}
-                       style={{width: '100%'}}
-                       placeholder="Select Action"
-                       onSearch={(value) => {
-                           const results = this.handleSearch(value, 'actions');
-                           this.setState({actionResults: results});
-                       }}
-                       onSelect={this.onSelectAction}
-                   >
-                       { this.state.selectedYosk ? this.state.actionResults.map((action, i) => <Option key={i}>{action}</Option>) : null}
-                   </AutoComplete>
-               </div>
                 <div className="input-padding">
-                    <InputNumber placeholder={"User Id"} onChange={(value) => {this.setState({userId: value})}} value={this.state.userId}/>
+                    <AutoComplete
+                        style={{width: '100%'}}
+                        placeholder="Select Controller"
+                        onSearch={(value) => {
+                            const results = this.handleSearch(value, 'routes');
+                            this.setState({controllerResults: results});
+                        }}
+                        onSelect={this.onSelect}
+                    >
+                        {this.state.controllerResults.map((route, i) => <Option key={i}>{route.controller}</Option>)}
+                    </AutoComplete>
                 </div>
-                <div className="input-padding" style={{ maxWidth: "1400px", maxHeight: "100%", border: "1px solid #e3e3e3", borderRadius: "5px" }}>
+                <div className="input-padding">
+                    <AutoComplete
+                        disabled={!this.state.selectedYosk}
+                        style={{width: '100%'}}
+                        placeholder="Select Action"
+                        onSearch={(value) => {
+                            const results = this.handleSearch(value, 'actions');
+                            this.setState({actionResults: results});
+                        }}
+                        onSelect={this.onSelectAction}
+                    >
+                        {this.state.selectedYosk ? this.state.actionResults.map((action, i) => <Option
+                            key={i}>{action}</Option>) : null}
+                    </AutoComplete>
+                </div>
+                <div className="input-padding">
+                    <InputNumber placeholder={"User Id"} onChange={(value) => {
+                        this.setState({userId: value})
+                    }} value={this.state.userId}/>
+                </div>
+                <div className="input-padding"
+                     style={{maxWidth: "1400px", maxHeight: "100%", border: "1px solid #e3e3e3", borderRadius: "5px"}}>
                     <JSONInput
                         theme="light_mitsuketa_tribute"
                         placeholder={{}}
@@ -94,8 +99,13 @@ class YoskForm extends React.Component {
                             string: "#DAA520" // overrides theme colors with whatever color value you want
                         }}
                         jsObject={this.state.params}
+                        locale={locale}
                         height="300px"
-                        onChange={({jsObject}) => { if(jsObject) {this.setState({params: jsObject})}}} value={this.state.params}
+                        onChange={({jsObject}) => {
+                            if (jsObject) {
+                                this.setState({params: jsObject})
+                            }
+                        }} value={this.state.params}
                     />
                 </div>
                 <div className="input-padding">
