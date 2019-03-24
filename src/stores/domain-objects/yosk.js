@@ -50,6 +50,7 @@ export default class Yosk {
     startPolling() {
         YoskService.getExecutionStatus(this.executionId).then(this.updateStatus);
         YoskService.getlogs(this.executionId).then(this.setLogs);
+        YoskService.getQueries(this.executionId).then(this.setQuries);
     }
 
     updateStatus = (resp) => {
@@ -84,7 +85,9 @@ export default class Yosk {
     }
 
     setLogs = (resp) => {
-        this.logs = resp.data.map(log => new Log(log));
+        this.logs = resp.data.map(log => new Log(log)).sort((a, b) => {
+            return new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+        });
     }
 
     setQuries = (resp) => {
@@ -95,6 +98,5 @@ export default class Yosk {
         YoskService.getDetails(this.executionId).then(this.setDetails);
         YoskService.getMemoryProfiler(this.executionId).then(this.setMemoryProfiler);
         YoskService.getResponse(this.executionId).then(this.setResponse);
-        YoskService.getQueries(this.executionId).then(this.setQuries);
     }
 }
