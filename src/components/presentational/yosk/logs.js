@@ -14,7 +14,7 @@ class Logs extends React.Component {
         return (
             <CustomCard cardClass="Log" title="Logs">
                 {logs.length ?
-                   <LogTable data={logs.map(log => log.log)}/>
+                   <LogTable data={logs}/>
                    : <Skeleton active={true} />}
             </CustomCard>
         )

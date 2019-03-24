@@ -5,6 +5,7 @@ import MemoryProfiler from "./memory_profiler";
 import Query from "./query";
 import YoskService from "../../services/yosk_service";
 import Response from "./response";
+import {notification} from 'antd';
 
 export const YOSK_STATUS = {
     COMPLETED: 'completed',
@@ -48,6 +49,8 @@ export default class Yosk {
 
     startPolling() {
         YoskService.getExecutionStatus(this.executionId).then(this.updateStatus);
+        YoskService.getlogs(this.executionId).then(this.setLogs);
+        YoskService.getQueries(this.executionId).then(this.setQuries);
     }
 
     updateStatus = (resp) => {
@@ -59,6 +62,15 @@ export default class Yosk {
         }
         if (status === YOSK_STATUS.FAILED) {
             clearInterval(this.interval);
+            notification.error({
+                message: 'Error',
+                placement: 'bottomRight',
+                description: resp.data.error_message,
+                duration: 99999999
+            });
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000);
         }
 
         this.status = status;
@@ -77,7 +89,9 @@ export default class Yosk {
     }
 
     setLogs = (resp) => {
-        this.logs = resp.data.map(log => new Log(log));
+        this.logs = resp.data.map(log => new Log(log)).sort((a, b) => {
+            return new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+        });
     }
 
     setQuries = (resp) => {
@@ -88,7 +102,5 @@ export default class Yosk {
         YoskService.getDetails(this.executionId).then(this.setDetails);
         YoskService.getMemoryProfiler(this.executionId).then(this.setMemoryProfiler);
         YoskService.getResponse(this.executionId).then(this.setResponse);
-        YoskService.getlogs(this.executionId).then(this.setLogs);
-        YoskService.getQueries(this.executionId).then(this.setQuries);
     }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, Tag } from 'antd';
-import CustomCard from "../custom-card/custom-card";
 
 const getLogLevelColor = (logLevel) => {
   switch (logLevel) {
@@ -21,7 +20,7 @@ const columns = [
         title: 'Timestamp',
         dataIndex: 'timestamp',
         key: 'timestamp',
-        sorter: (a, b) => (new Date(a.timestamp) - new Date(b.timestamp)),
+        sorter: (a, b) => (new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()),
         sortDirections: ['descend', 'ascend'],
         render: date => new Date(date).toLocaleString().split(',')[1]
     },
