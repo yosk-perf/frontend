@@ -8,9 +8,9 @@ const styles = {
   }
 };
 
-const CustomCard = ({title = "", children}) => {
+const CustomCard = ({title = "", loading = false, children}) => {
     return (
-        <Card style={styles.card} title={title}>
+        <Card style={styles.card} title={title} loading={loading}>
             {children}
         </Card>
     )
@@ -18,6 +18,7 @@ const CustomCard = ({title = "", children}) => {
 
 CustomCard.propTypes = {
     title: PropTypes.string,
+    loading: PropTypes.bool,
     children: PropTypes.any
 };
 

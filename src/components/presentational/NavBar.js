@@ -6,9 +6,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
 const styles = {
-    root: {
-        flexGrow: 1,
-    },
     nav: {
       backgroundColor: 'rgba(230, 230, 230, 0.5)'
     },
@@ -20,20 +17,18 @@ const styles = {
 
 const NavBar = ({classes}) => {
     return (
-        <div className={classes.root}>
-            <AppBar
-                className={classes.nav}
-                classes={{
-                    positionFixed: classes.navFixed
-                }}
-                position="fixed" color="default">
-                <Toolbar>
-                    <Typography variant="h6" color="inherit">
-                        Yosk
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-        </div>
+        <AppBar
+            className={classes.nav}
+            classes={{
+                positionFixed: classes.navFixed
+            }}
+            position="fixed" color="default">
+            <Toolbar>
+                <Typography variant="h6" color="inherit">
+                    Yosk
+                </Typography>
+            </Toolbar>
+        </AppBar>
     );
 };
 
