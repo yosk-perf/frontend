@@ -66,6 +66,10 @@ body {
 
 .ant-table td { white-space: nowrap; }
 
+.nav-bar-details {
+  font-family: 'Inconsolata', monospace !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

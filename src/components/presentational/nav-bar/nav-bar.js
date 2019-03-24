@@ -37,7 +37,7 @@ class NavBar extends React.Component {
                         {
                             yosk ? <>
                                 <span>{yosk.controller}#{yosk.action}</span>
-                                <span style={{float: 'right'}}>User Id: {yosk.userId} {yosk.details ? `| Execution Time: ${yosk.details.totalDuration.toFixed(2)}ms` : null}</span>
+                                <span style={{float: 'right', marginTop: '10px'}}>User Id: {yosk.userId} {yosk.details ? `| Execution Time: ${yosk.details.totalDuration.toFixed(2)}ms` : null}</span>
                                 </> : null
 
                         }
