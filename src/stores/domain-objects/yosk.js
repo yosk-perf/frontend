@@ -1,4 +1,4 @@
-import { observable, computed, action, runInAction} from "mobx"
+import {observable, computed, action, runInAction} from "mobx"
 import Log from "./log";
 import Details from "./details";
 import MemoryProfiler from "./memory_profiler";
@@ -8,8 +8,8 @@ import Response from "./response";
 
 export const YOSK_STATUS = {
     COMPLETED: 'completed',
-    IN_PROGRESS:  'in-progress',
-    FAILED:  'failed'
+    IN_PROGRESS: 'in-progress',
+    FAILED: 'failed'
 };
 
 export default class Yosk {
@@ -19,14 +19,18 @@ export default class Yosk {
     @observable queries = [];
     @observable status;
     @observable response;
+    @observable controller;
+    @observable userId;
+    @observable action;
 
     executionId = null;
     interval = null;
-    request = {};
 
     constructor(request) {
-      this.request = request;
-      this.executeYosk(request);
+        this.executeYosk(request);
+        this.userId = request.user_id;
+        this.controller = request.request_controller;
+        this.action = request.request_action;
     }
 
     async executeYosk(request) {
@@ -67,7 +71,7 @@ export default class Yosk {
     setMemoryProfiler = (resp) => {
         this.memoryProfiler = new MemoryProfiler(resp.data);
     }
-    
+
     setResponse = (resp) => {
         this.response = new Response(resp.data);
     }
