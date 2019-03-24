@@ -53,6 +53,10 @@ body {
   color: #61dafb;
 }
 
+.App-content {
+  height: 90%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
