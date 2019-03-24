@@ -10,7 +10,7 @@ const styles = {
         flexGrow: 1,
     },
     nav: {
-      backgroundColor: 'rgba(230, 230, 230, 0.68)'
+      backgroundColor: 'rgba(230, 230, 230, 0.5)'
     },
     navFixed: {
         bottom: 0,
@@ -21,7 +21,7 @@ const styles = {
 const NavBar = ({classes}) => {
     return (
         <div className={classes.root}>
-            <AppBar classes={{
+            <AppBar className={classes.nav} classes={{
                 positionFixed: classes.navFixed
             }} position="fixed" color="default">
                 <Toolbar>
