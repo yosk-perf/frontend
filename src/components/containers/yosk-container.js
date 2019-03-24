@@ -1,8 +1,10 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
-import CustomCard from "../presentational/CustomCard";
+import CustomCard from "../presentational/custom-card";
 import YoskForm from "../presentational/yosk-form";
 import Results from "../presentational/results";
+
+import '../presentational/yosk-form.css';
 
 @inject('yosksStore')
 @observer
@@ -11,11 +13,9 @@ class YoskContainer extends React.Component {
         const {yosk} = this.props.yosksStore;
 
         return !yosk ?
-        <>
-            <CustomCard>
-                <YoskForm/>
-            </CustomCard>
-        </>
+        <CustomCard cardClass="Yosk-form">
+            <YoskForm/>
+        </CustomCard>
         :
         <Results/>;
     }
