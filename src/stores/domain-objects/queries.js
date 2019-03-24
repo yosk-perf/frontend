@@ -13,7 +13,7 @@ export default class Queries {
     }
 
     @computed
-    getQueries() {
+    get getQueries() {
         return this.queries;
     }
 }
