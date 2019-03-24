@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'antd';
+import classNames from 'classnames';
 
-const styles = {
-  card: {
-      background: 'rgba(255, 255, 255, 0.82)',
-  }
-};
+import './CustomCard.css';
 
-const CustomCard = ({title = "", loading = false, children}) => {
+const CustomCard = ({title = "", loading = false, cardClass, children}) => {
+    const mergedStyle = cardClass ? classNames('CustomCard', cardClass) : 'CustomCard';
     return (
-        <Card style={styles.card} title={title} loading={loading}>
+        <Card className={mergedStyle} title={title} loading={loading}>
             {children}
         </Card>
     )
@@ -19,6 +17,7 @@ const CustomCard = ({title = "", loading = false, children}) => {
 CustomCard.propTypes = {
     title: PropTypes.string,
     loading: PropTypes.bool,
+    cardClass: PropTypes.string,
     children: PropTypes.any
 };
 
