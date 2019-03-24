@@ -12,7 +12,7 @@ class MemoryProfiler extends Component {
         return (
             <CustomCard cardClass="MemoryProfiler">
                 {memoryProfiler ?
-                    <pre>{memoryProfiler.text}</pre>
+                    <pre className="MemoryProfiler-text">{memoryProfiler.text}</pre>
                     : <Skeleton active={true} />
                 }
             </CustomCard>

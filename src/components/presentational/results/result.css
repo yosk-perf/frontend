@@ -31,5 +31,12 @@
 }
 
 .MemoryProfiler {
+    font-family: 'Inconsolata', monospace;
+    font-size: 14px;
     width: 42%;
+}
+
+.MemoryProfiler-text {
+    font-family: 'Inconsolata', monospace;
+    font-size: 14px;
 }
