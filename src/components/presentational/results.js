@@ -15,10 +15,10 @@ class Results extends React.Component {
             <div className="Result" >
                 <UpperLayout className="UpperLayout">
                     <Logs/>
-                    <Queries />
+                    <MemoryProfiler />
                 </UpperLayout>
                 <LowerLayout className="LowerLayout">
-                    <MemoryProfiler />
+                    <Queries />
                     <Response/>
                 </LowerLayout>
             </div>

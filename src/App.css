@@ -61,6 +61,13 @@ body {
   margin-right: 15px;
 }
 
+.span.hljs-keyword:nth-child(10) {
+  display: block;
+}
+.hljs {
+  max-width: 900px;
+  overflow: scroll;
+}
 
 @keyframes App-logo-spin {
   from {

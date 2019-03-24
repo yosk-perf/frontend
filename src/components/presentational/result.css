@@ -22,7 +22,7 @@
 }
 
 .Queries {
-    width: 42%;
+    width: 55%;
 }
 
 .Response {
@@ -30,5 +30,5 @@
 }
 
 .MemoryProfiler {
-    width: 55%;
+    width: 42%;
 }

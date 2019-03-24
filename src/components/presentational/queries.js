@@ -2,7 +2,7 @@ import React from 'react';
 import {inject, observer} from 'mobx-react';
 import {Skeleton} from 'antd';
 import CustomCard from "./custom-card";
-import Hightlight from 'react-highlight.js';
+import QueriesTable from "./queries-table";
 
 @inject('yosksStore')
 @observer
@@ -15,13 +15,7 @@ class Queries extends React.Component {
             <CustomCard cardClass="Queries">
                 {queries.length ?
                     <div>
-                        {queries.map((query, index) => {
-                            return (
-                                <Hightlight key={index} language="SQL">
-                                    {query.query}
-                                </Hightlight>
-                            )
-                        })}
+                        {<QueriesTable data={queries}/>}
                     </div>
                     : <Skeleton active={true} />}
             </CustomCard>

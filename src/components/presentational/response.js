@@ -4,6 +4,7 @@ import {Skeleton} from 'antd';
 import JSONInput from "react-json-editor-ajrm";
 import CustomCard from "./custom-card";
 
+
 @inject('yosksStore')
 @observer
 class Response extends React.Component {
