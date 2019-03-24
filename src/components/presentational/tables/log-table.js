@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, Tag } from 'antd';
-import CustomCard from "../custom-card/custom-card";
 
 const getLogLevelColor = (logLevel) => {
   switch (logLevel) {
