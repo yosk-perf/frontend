@@ -12,7 +12,7 @@ export default class RoutesStore {
 
     async init() {
         const response = await RoutesService.get();
-        response.data.map((route) => {this.addRoute(route)});
+        response.data.forEach(this.addRoute);
         this.setLoaded();
     }
 
@@ -22,7 +22,7 @@ export default class RoutesStore {
     }
 
     @action
-    addRoute(route) {
+    addRoute = (route) => {
         const newRoute = new Route(route);
         this.routes.push(newRoute);
     }
