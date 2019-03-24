@@ -1,10 +1,13 @@
 .Yosk-form {
-    max-height: 600px;
-    height: 70%;
-    width: 550px;
-    margin: 0 auto;
+    position: absolute; /* or absolute */
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    transform: translate(-50%, -50%);
 }
 
 .input-padding {
     margin: 15px 0;
 }
+
+

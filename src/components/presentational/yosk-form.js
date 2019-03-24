@@ -84,12 +84,12 @@ class YoskForm extends React.Component {
                    </AutoComplete>
                </div>
                 <div className="input-padding">
-                    <InputNumber onChange={(value) => {this.setState({userId: value})}} value={this.state.userId}/>
+                    <InputNumber placeholder={"User Id"} onChange={(value) => {this.setState({userId: value})}} value={this.state.userId}/>
                 </div>
                 <div className="input-padding" style={{ maxWidth: "1400px", maxHeight: "100%", border: "1px solid #e3e3e3", borderRadius: "5px" }}>
                     <JSONInput
                         theme="light_mitsuketa_tribute"
-                        placeholder={{"example": "Enter your JSON"}}
+                        placeholder={{}}
                         colors={{
                             string: "#DAA520" // overrides theme colors with whatever color value you want
                         }}
