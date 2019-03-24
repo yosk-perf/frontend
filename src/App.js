@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 
 import particlesConfig from './config/particles-config';
-import AppContent from './components/presentational/AppContent';
-import NavBar from './components/presentational/NavBar';
+import AppContent from './components/presentational/app-content';
+import NavBar from './components/presentational/nav-bar';
 import YoskContainer from "./components/containers/yosk-container";
 
 import './App.css';

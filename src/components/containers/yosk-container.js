@@ -1,6 +1,6 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
-import CustomCard from "../presentational/CustomCard";
+import CustomCard from "../presentational/custom-card";
 import YoskForm from "../presentational/yosk-form";
 import Results from "../presentational/results";
 
