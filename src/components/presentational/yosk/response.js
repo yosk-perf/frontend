@@ -13,7 +13,7 @@ class Response extends React.Component {
         const response = yosk.response;
 
         return (
-            <CustomCard cardClass="Response">
+            <CustomCard cardClass="Response" title="Response">
                 {
                     response ?
                         <JSONInput

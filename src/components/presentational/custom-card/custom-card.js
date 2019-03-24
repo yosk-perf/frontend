@@ -4,11 +4,21 @@ import classNames from 'classnames';
 
 import './custom-card.css';
 
-const CustomCard = ({title = "", loading = false, cardClass, children}) => {
+const CustomCard = ({title, loading = false, cardClass, children}) => {
     const mergedStyle = cardClass ? classNames('CustomCard', cardClass) : 'CustomCard';
     return (
         <div className={mergedStyle}>
-            {children}
+            {
+                title ?
+                    <div>
+                        <p className="Title">{title}</p>
+                    </div>
+                    : <React.Fragment/>
+            }
+
+            <div>
+                {children}
+            </div>
         </div>
     )
 };

@@ -10,7 +10,7 @@ class MemoryProfiler extends Component {
         const { yosk } = this.props.yosksStore;
         const { memoryProfiler } = yosk;
         return (
-            <CustomCard cardClass="MemoryProfiler">
+            <CustomCard cardClass="MemoryProfiler" title="Memory Profiler">
                 {memoryProfiler ?
                     <pre className="MemoryProfiler-text">{memoryProfiler.text}</pre>
                     : <Skeleton active={true} />
