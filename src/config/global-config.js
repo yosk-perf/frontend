@@ -4,8 +4,7 @@ export default class GlobalConfig {
             return 'http://localhost:3000/yosk';
         }
         if (process.env.NODE_ENV === 'production') {
-            // ADD URL IN PROD IN FUTURE
-            return '';
+            return '/yosk';
         }
 
         return '';
