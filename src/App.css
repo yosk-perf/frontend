@@ -14,7 +14,7 @@ body {
 }
 
 .App {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inconsolata', monospace;
   display: flex;
   height: 100%;
   justify-content: center;

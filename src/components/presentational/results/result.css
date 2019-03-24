@@ -31,9 +31,8 @@
 }
 
 .MemoryProfiler {
-    font-family: 'Inconsolata', monospace;
-    font-size: 14px;
     width: 42%;
+    overflow: auto;
 }
 
 .MemoryProfiler-text {
