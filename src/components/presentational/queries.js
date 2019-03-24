@@ -12,7 +12,7 @@ class Queries extends React.Component {
         const queries = yosk.queries;
 
         return (
-            <CustomCard>
+            <CustomCard cardClass="Queries">
                 {queries.length ?
                     <div>
                         {queries.map((query, index) => {

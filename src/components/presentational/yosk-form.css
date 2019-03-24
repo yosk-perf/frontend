@@ -3,6 +3,7 @@
     height: 70%;
     width: 550px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .input-padding {

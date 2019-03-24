@@ -13,14 +13,14 @@ class YoskContainer extends React.Component {
         const {yosk} = this.props.yosksStore;
 
         return (
-            <div>
+            <>
                 {!yosk ?
                     <CustomCard cardClass="Yosk-form">
                         <YoskForm/>
                     </CustomCard>
                     :
                     <Results/>}
-            </div>
+            </>
         )
     }
 }

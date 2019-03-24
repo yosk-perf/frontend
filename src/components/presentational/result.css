@@ -1,4 +1,34 @@
 .Result {
     display: flex;
-    height: 80%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.UpperLayout {
+    height: 48%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.LowerLayout {
+    height: 48%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Log {
+    width: 55%;
+}
+
+.Queries {
+    width: 42%;
+}
+
+.Response {
+    width: 42%;
+}
+
+.MemoryProfiler {
+    width: 55%;
 }

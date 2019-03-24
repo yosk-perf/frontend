@@ -4,18 +4,23 @@ import Response from "./response";
 import Logs from "./logs";
 import MemoryProfiler from "./memory-profiler";
 import Queries from "./queries";
+import UpperLayout from './upper-layout';
 
 import './result.css';
+import LowerLayout from "./LowerLayout";
 
 class Results extends React.Component {
     render() {
         return (
-            <div>
-                <Details/>
-                <MemoryProfiler />
-                <Response/>
-                <Logs/>
-                <Queries />
+            <div className="Result" >
+                <UpperLayout className="UpperLayout">
+                    <Logs/>
+                    <Queries />
+                </UpperLayout>
+                <LowerLayout className="LowerLayout">
+                    <MemoryProfiler />
+                    <Response/>
+                </LowerLayout>
             </div>
         )
     }
