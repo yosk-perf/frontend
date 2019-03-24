@@ -64,6 +64,10 @@ export default class Yosk {
         this.details = new Details(resp.data);
     }
 
+    setMemoryProfiler = (resp) => {
+        this.memoryProfiler = new MemoryProfiler(resp.data);
+    }
+    
     setResponse = (resp) => {
         this.response = new Response(resp.data);
     }
@@ -74,6 +78,7 @@ export default class Yosk {
 
     async getResults() {
         YoskService.getDetails(this.executionId).then(this.setDetails);
+        YoskService.getMemoryProfiler(this.executionId).then(this.setMemoryProfiler);
         YoskService.getResponse(this.executionId).then(this.setResponse);
         YoskService.getlogs(this.executionId).then(this.setLogs);
     }
