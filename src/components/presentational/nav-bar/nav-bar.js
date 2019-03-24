@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {inject, observer} from "mobx-react/index";
+import yoskLogo from './yosk-logo.png';
 
 const styles = {
     nav: {
@@ -32,7 +33,7 @@ class NavBar extends React.Component {
                 position="fixed" color="default">
                 <Toolbar>
                     <Typography className="nav-bar-details" style={{width: '100%'}} variant="h6" color="inherit">
-                        <span>Yosk</span>
+                        <img src={yoskLogo} style={{width: '60px', height: '60px'}}></img>
                         {
                             yosk ? <>
                                 <span>{yosk.controller}#{yosk.action}</span>
