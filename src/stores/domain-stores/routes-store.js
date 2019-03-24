@@ -18,7 +18,7 @@ export default class RoutesStore {
 
     @action
     setLoaded() {
-        this.isLoading = true;
+        this.isLoading = false;
     }
 
     @action
