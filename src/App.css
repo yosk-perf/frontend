@@ -70,6 +70,10 @@ body {
   font-family: 'Inconsolata', monospace !important;
 }
 
+.Response > div:nth-child(2), .MemoryProfiler > div:nth-child(2){
+  overflow: scroll;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
