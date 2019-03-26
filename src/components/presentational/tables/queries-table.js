@@ -31,7 +31,7 @@ const columns = [
 
 const QueriesTable = ({data}) => {
     return (
-        <Table scroll={{x: true, y: 400}} rowKey={record => `${record.name}-${Date.now()}`} columns={columns} dataSource={data} pagination={false}/>
+        <Table rowKey={record => `${record.name}-${Date.now()}`} columns={columns} dataSource={data} pagination={false}/>
     );
 };
 

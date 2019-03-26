@@ -12,16 +12,16 @@ class Response extends React.Component {
         const response = yosk.response;
 
         return (
-            <CustomCard cardClass="Response" title="Response">
+            <CustomCard cardClass="Response">
                 {
                     response ?
                         <>
                             <MonacoEditor
-                                width="700px"
-                                height="325px"
+                                width="100%"
+                                style={{minHeight: '700px'}}
                                 language="json"
                                 theme="vs-light"
-                                options={{formatOnPaste: true, formatOnType: true, readOnly: true}}
+                                options={{formatOnPaste: true, formatOnType: true, readOnly: true, automaticLayout: true}}
                                 value={JSON.stringify(response, null, '\t')}
                             />
                         </>

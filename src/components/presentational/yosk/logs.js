@@ -12,7 +12,7 @@ class Logs extends React.Component {
         const logs = yosk.logs;
 
         return (
-            <CustomCard cardClass="Log" title="Logs">
+            <CustomCard cardClass="Log">
                 {logs.length ?
                    <LogTable data={logs}/>
                    : <Skeleton active={true} />}

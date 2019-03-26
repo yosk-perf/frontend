@@ -25,7 +25,7 @@ const columns = [
         render: date => new Date(date).toLocaleString().split(',')[1]
     },
     {
-        title: 'Log Level',
+        title: 'Level',
         key: 'logLevel',
         dataIndex: 'logLevel',
         render: tag => (
@@ -50,7 +50,7 @@ const columns = [
 
 const LogTable = ({data}) => {
     return (
-        <Table scroll={{x: true, y: 400}} rowKey="id" columns={columns} dataSource={data} pagination={false}/>
+        <Table rowKey="id" columns={columns} dataSource={data} pagination={false}/>
     );
 };
 

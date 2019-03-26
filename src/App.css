@@ -60,7 +60,6 @@ body {
   display: block;
 }
 .hljs {
-  max-width: 900px;
   overflow: scroll;
 }
 
@@ -72,6 +71,18 @@ body {
 
 .Response > div:nth-child(2), .MemoryProfiler > div:nth-child(2){
   overflow: scroll;
+}
+
+.Response .react-monaco-editor-container {
+  min-height: 700px;
+}
+
+.ant-tabs {
+  height: 100%;
+}
+
+.ant-tabs .ant-tabs-left-bar .ant-tabs-tab {
+  text-align: left;
 }
 
 @keyframes App-logo-spin {
