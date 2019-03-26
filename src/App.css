@@ -73,12 +73,13 @@ body {
   overflow: scroll;
 }
 
-.Response .react-monaco-editor-container {
+.ant-tabs .react-monaco-editor-container {
   min-height: 700px;
 }
 
 .ant-tabs {
   height: 100%;
+  overflow: scroll;
 }
 
 .ant-tabs .ant-tabs-left-bar .ant-tabs-tab {

@@ -1,7 +1,6 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 import {Skeleton} from 'antd';
-import CustomCard from "../custom-card/custom-card";
 import QueriesTable from "../tables/queries-table";
 
 @inject('yosksStore')
@@ -11,15 +10,11 @@ class Queries extends React.Component {
         const {yosk} = this.props.yosksStore;
         const queries = yosk.queries;
 
-        return (
-            <CustomCard cardClass="Queries">
-                {queries.length ?
-                    <div>
-                        {<QueriesTable data={queries}/>}
-                    </div>
-                    : <Skeleton active={true} />}
-            </CustomCard>
-        )
+        return queries.length ?
+            <div>
+                {<QueriesTable data={queries}/>}
+            </div>
+            : <Skeleton active={true}/>
     }
 }
 

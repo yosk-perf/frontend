@@ -1,7 +1,6 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 import {Skeleton} from 'antd';
-import CustomCard from "../custom-card/custom-card";
 import LogTable from "../tables/log-table";
 
 @inject('yosksStore')
@@ -11,13 +10,9 @@ class Logs extends React.Component {
         const {yosk} = this.props.yosksStore;
         const logs = yosk.logs;
 
-        return (
-            <CustomCard cardClass="Log">
-                {logs.length ?
-                   <LogTable data={logs}/>
-                   : <Skeleton active={true} />}
-            </CustomCard>
-        )
+        return logs.length ?
+            <LogTable data={logs}/>
+            : <Skeleton active={true}/>
     }
 }
 
