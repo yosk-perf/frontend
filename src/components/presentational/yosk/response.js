@@ -1,9 +1,8 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
 import {Skeleton} from 'antd';
-import JSONInput from "react-json-editor-ajrm";
 import CustomCard from "../custom-card/custom-card";
-import locale from 'react-json-editor-ajrm/locale/en';
+import MonacoEditor from 'react-monaco-editor';
 
 @inject('yosksStore')
 @observer
@@ -16,17 +15,16 @@ class Response extends React.Component {
             <CustomCard cardClass="Response" title="Response">
                 {
                     response ?
-                        <JSONInput
-                            theme="light_mitsuketa_tribute"
-                            placeholder={response}
-                            viewOnly={true}
-                            locale={locale}
-                            colors={{
-                                string: "#DAA520" // overrides theme colors with whatever color value you want
-                            }}
-                            height="100%"
-                            width="100%"
-                        />
+                        <>
+                            <MonacoEditor
+                                width="700px"
+                                height="325px"
+                                language="json"
+                                theme="vs-light"
+                                options={{formatOnPaste: true, formatOnType: true, readOnly: true}}
+                                value={JSON.stringify(response, null, '\t')}
+                            />
+                        </>
                         : <Skeleton active={true} />
                 }
             </CustomCard>

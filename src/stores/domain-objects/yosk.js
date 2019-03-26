@@ -40,7 +40,7 @@ export default class Yosk {
         this.setId(response.data.execution_id);
         this.interval = setInterval(() => {
             this.startPolling();
-        }, 1000);
+        }, 2500);
     }
 
     setId(id) {

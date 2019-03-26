@@ -16,6 +16,7 @@
     "react-dom": "^16.8.5",
     "react-highlight.js": "^1.0.7",
     "react-json-editor-ajrm": "^2.5.9",
+    "react-monaco-editor": "^0.25.1",
     "react-particles-js": "^2.5.1",
     "react-scripts": "2.1.8"
   },
