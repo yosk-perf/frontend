@@ -29,4 +29,8 @@ export default class YoskService {
     static getQueries(executionId) {
         return axios.get(`${GlobalConfig.API_URL}/execution/${executionId}/sql_queries`);
     }
+
+    static getRequest(executionId) {
+        return axios.get(`${GlobalConfig.API_URL}/execution/${executionId}/request`);
+    }
 }

@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^3.9.2",
     "antd": "^3.15.2",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
@@ -19,7 +18,8 @@
     "react-json-editor-ajrm": "^2.5.9",
     "react-monaco-editor": "^0.25.1",
     "react-particles-js": "^2.5.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "uuid4": "^1.1.4"
   },
   "scripts": {
     "start": "react-app-rewired start",

@@ -7,7 +7,7 @@ import rootStore from './stores/root-store';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <Provider store={rootStore.router} {...rootStore}>
+    <Provider store={rootStore} {...rootStore}>
         <App/>
     </Provider>
     , document.getElementById('root'));

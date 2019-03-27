@@ -1,17 +1,31 @@
 import { observable, action, computed} from "mobx"
 import Yosk from "../domain-objects/yosk";
+import YoskService from "../../services/yosk_service";
+import {routes} from '../ui-stores/router-store';
 
 export default class YoskStore {
+    rootStore;
     @observable yosk;
 
-    @action
-    addYosk(yoskRequest) {
-        const newYosk = new Yosk(yoskRequest);
-        this.yosk = newYosk;
+    constructor(rootStore) {
+        this.rootStore = rootStore;
     }
 
-    @computed
-    get getYosk() {
-        return this.yosk;
+    @action
+    init() {
+        this.yosk = null;
+    }
+
+    @action
+    async execYosk(yoskRequest) {
+        this.yosk = new Yosk();
+        const resp = await YoskService.execute(yoskRequest);
+        const executionId = resp.data.execution_id;
+        this.rootStore.router.goTo(routes.yosk, {id: executionId}, this.rootStore)
+    }
+
+    @action
+    initYosk(executionId) {
+        this.yosk = new Yosk({executionId});
     }
 }

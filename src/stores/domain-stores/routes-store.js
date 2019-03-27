@@ -6,14 +6,12 @@ export default class RoutesStore {
     @observable routes = []
     @observable isLoading = true;
 
-    constructor() {
-        this.init();
-    }
-
     async init() {
-        const response = await RoutesService.get();
-        response.data.forEach(this.addRoute);
-        this.setLoaded();
+        if (!this.routes.length) {
+            const response = await RoutesService.get();
+            response.data.forEach(this.addRoute);
+            this.setLoaded();
+        }
     }
 
     @action

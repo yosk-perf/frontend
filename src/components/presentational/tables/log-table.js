@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, Tag } from 'antd';
+import uuid4 from 'uuid4';
 
 const getLogLevelColor = (logLevel) => {
   switch (logLevel) {
@@ -50,7 +51,7 @@ const columns = [
 
 const LogTable = ({data}) => {
     return (
-        <Table rowKey={record => `${record.timestamp}-${Date.now()}`} columns={columns} dataSource={data} pagination={false}/>
+        <Table rowKey={() => uuid4()} columns={columns} dataSource={data} pagination={false}/>
     );
 };
 

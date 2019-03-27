@@ -44,7 +44,7 @@ class YoskForm extends React.Component {
     };
 
     createYosk = () => {
-        this.props.yosksStore.addYosk({
+        this.props.yosksStore.execYosk({
             request_controller: this.state.selectedYosk.controller,
             request_action: this.state.selectedAction,
             user_id: this.state.userId,

@@ -5,6 +5,7 @@ import MemoryProfiler from "./memory_profiler";
 import Query from "./query";
 import YoskService from "../../services/yosk_service";
 import Response from "./response";
+import Request from "./request";
 import {notification} from 'antd';
 
 export const YOSK_STATUS = {
@@ -20,27 +21,17 @@ export default class Yosk {
     @observable queries = [];
     @observable status;
     @observable response;
-    @observable controller;
-    @observable userId;
-    @observable action;
+    @observable request;
+    @observable executionId = null;
 
-    executionId = null;
     interval = null;
 
-    constructor(request) {
-        this.executeYosk(request);
-        this.userId = request.user_id;
-        this.controller = request.request_controller;
-        this.action = request.request_action;
-    }
-
-    async executeYosk(request) {
-        const response = await YoskService.execute(request);
-
-        this.setId(response.data.execution_id);
-        this.interval = setInterval(() => {
+    constructor(request = {}) {
+        if (request.executionId) {
+            this.setId(request.executionId);
+            this.getRequestData();
             this.startPolling();
-        }, 2500);
+        }
     }
 
     setId(id) {
@@ -48,9 +39,12 @@ export default class Yosk {
     }
 
     startPolling() {
-        YoskService.getExecutionStatus(this.executionId).then(this.updateStatus);
-        YoskService.getlogs(this.executionId).then(this.setLogs);
-        YoskService.getQueries(this.executionId).then(this.setQuries);
+        this.interval = setInterval(() => {
+            YoskService.getExecutionStatus(this.executionId).then(this.updateStatus);
+            YoskService.getlogs(this.executionId).then(this.setLogs);
+            YoskService.getQueries(this.executionId).then(this.setQuries);
+            this.startPolling();
+        }, 2500);
     }
 
     updateStatus = (resp) => {
@@ -75,6 +69,14 @@ export default class Yosk {
 
         this.status = status;
     }
+
+    getRequestData = () => {
+        YoskService.getRequest(this.executionId).then(this.setRequest);
+    };
+
+    setRequest = (resp) => {
+        this.request = new Request(resp.data);
+    };
 
     setDetails = (resp) => {
         this.details = new Details(resp.data);
