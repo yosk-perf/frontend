@@ -43,7 +43,6 @@ export default class Yosk {
             YoskService.getExecutionStatus(this.executionId).then(this.updateStatus);
             YoskService.getlogs(this.executionId).then(this.setLogs);
             YoskService.getQueries(this.executionId).then(this.setQuries);
-            this.startPolling();
         }, 2500);
     }
 
