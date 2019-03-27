@@ -69,6 +69,13 @@ body {
   font-family: 'Inconsolata', monospace !important;
 }
 
+.ant-layout { background: transparent }
+.ant-layout-footer {
+  background: rgba(230, 230, 230, 0.5);
+  padding: 5px 20px;
+  box-shadow: 0 0 6px 0 grey;
+}
+
 .Response > div:nth-child(2), .MemoryProfiler > div:nth-child(2){
   overflow: scroll;
 }
