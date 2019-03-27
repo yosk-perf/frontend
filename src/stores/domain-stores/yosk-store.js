@@ -2,6 +2,9 @@ import { observable, action, computed} from "mobx"
 import Yosk from "../domain-objects/yosk";
 import YoskService from "../../services/yosk_service";
 import {routes} from '../ui-stores/router-store';
+import {configure} from "mobx/lib/mobx";
+
+configure({enforceActions: "always"});
 
 export default class YoskStore {
     rootStore;

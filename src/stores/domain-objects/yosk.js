@@ -1,4 +1,4 @@
-import {observable} from "mobx"
+import {observable, action, configure} from "mobx"
 import Log from "./log";
 import Details from "./details";
 import MemoryProfiler from "./memory_profiler";
@@ -7,6 +7,8 @@ import YoskService from "../../services/yosk_service";
 import Response from "./response";
 import Request from "./request";
 import {notification} from 'antd';
+
+configure({enforceActions: "always"});
 
 export const YOSK_STATUS = {
     COMPLETED: 'completed',
@@ -34,6 +36,7 @@ export default class Yosk {
         }
     }
 
+    @action
     setId(id) {
         this.executionId = id;
     }
@@ -46,11 +49,12 @@ export default class Yosk {
         }, 2500);
     }
 
+    @action
     updateStatus = (resp) => {
         const status = resp.data.status;
 
         if (status === YOSK_STATUS.COMPLETED) {
-            clearInterval(this.interval);
+            this.interval = clearInterval(this.interval);
             this.getResults();
         }
         if (status === YOSK_STATUS.FAILED) {
@@ -73,28 +77,34 @@ export default class Yosk {
         YoskService.getRequest(this.executionId).then(this.setRequest);
     };
 
+    @action
     setRequest = (resp) => {
         this.request = new Request(resp.data);
     };
 
+    @action
     setDetails = (resp) => {
         this.details = new Details(resp.data);
     }
 
+    @action
     setMemoryProfiler = (resp) => {
         this.memoryProfiler = new MemoryProfiler(resp.data);
     }
 
+    @action
     setResponse = (resp) => {
         this.response = new Response(resp.data);
     }
 
+    @action
     setLogs = (resp) => {
         this.logs = resp.data.map(log => new Log(log)).sort((a, b) => {
             return new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
         });
     }
 
+    @action
     setQuries = (resp) => {
         this.queries = resp.data.map(query => new Query(query));
     }

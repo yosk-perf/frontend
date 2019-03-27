@@ -1,6 +1,9 @@
 import { observable, action, computed} from "mobx"
 import Route from "../domain-objects/route";
 import RoutesService from "../../services/routes_service";
+import {configure} from "mobx/lib/mobx";
+
+configure({enforceActions: "always"});
 
 export default class RoutesStore {
     @observable routes = []
