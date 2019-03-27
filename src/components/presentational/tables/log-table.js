@@ -50,7 +50,7 @@ const columns = [
 
 const LogTable = ({data}) => {
     return (
-        <Table rowKey="id" columns={columns} dataSource={data} pagination={false}/>
+        <Table rowKey={record => `${record.timestamp}-${Date.now()}`} columns={columns} dataSource={data} pagination={false}/>
     );
 };
 

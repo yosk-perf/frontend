@@ -3,7 +3,7 @@ import Particles from 'react-particles-js';
 
 import particlesConfig from './config/particles-config';
 import NavBar from './components/presentational/nav-bar/nav-bar';
-import YoskContainer from "./components/containers/yosk-container";
+import {MobxRouter} from 'mobx-router';
 
 import './App.css';
 
@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div className="App">
         <Particles params={particlesConfig} className="particles" />
-        <YoskContainer/>
+        <MobxRouter/>
         <NavBar />
       </div>
     );
