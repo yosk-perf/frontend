@@ -76,6 +76,10 @@ body {
   box-shadow: 0 0 6px 0 grey;
 }
 
+.ant-input { color: black; }
+
+.ant-input-number-input { color: black; }
+
 .Response > div:nth-child(2), .MemoryProfiler > div:nth-child(2){
   overflow: scroll;
 }

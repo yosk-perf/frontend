@@ -3,7 +3,7 @@ import Response from "../yosk/response";
 import Logs from "../yosk/logs";
 import MemoryProfiler from "../yosk/memory-profiler";
 import Queries from "../yosk/queries";
-import {Tabs} from 'antd';
+import { Tabs } from 'antd';
 import './result.css';
 
 const TabPane = Tabs.TabPane;
