@@ -1,34 +1,26 @@
-import {startRouter, Route, RouterStore} from 'mobx-router';
 import React from 'react';
-import YoskContainer from "../../components/containers/yosk-container";
-
-export const routes = {
-    home: new Route({
-        path: '/',
-        component: <YoskContainer/>,
-        onEnter: (route, params, store) => {
-            store.rootStore.yosksStore.init();
-            store.rootStore.routesStore.init();
-        }
-    }),
-    yosk: new Route({
-        path: '/:id',
-        component: <YoskContainer/>,
-        onEnter: (route, params, store) => {
-            const executionId = params.id;
-            store.rootStore.yosksStore.initYosk(executionId);
-        }
-    })
-};
+import Navigo from 'navigo';
+import globalConfig from '../../config/global-config';
 
 export default class RoutersStore {
     router;
     rootStore;
 
     constructor(rootStore) {
-        this.router = new RouterStore();
         this.rootStore = rootStore;
-
-        startRouter(routes, this);
+        this.router = new Navigo(globalConfig.ROUTER_CONFIG.ROOT, globalConfig.ROUTER_CONFIG.USE_HASH, globalConfig.ROUTER_CONFIG.HASH);
+        this.router
+            .on('yosk', () => {
+                this.rootStore.yosksStore.init();
+                this.rootStore.routesStore.init();
+            })
+            .on('yosk/:id', (params) => {
+                const executionId = params.id;
+                this.rootStore.yosksStore.initYosk(executionId);
+            })
+            .notFound(() => {
+                document.location.href = 'yosk';
+            })
+            .resolve();
     }
 }

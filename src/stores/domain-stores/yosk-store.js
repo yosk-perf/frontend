@@ -24,7 +24,7 @@ export default class YoskStore {
         this.yosk = new Yosk();
         const resp = await YoskService.execute(yoskRequest);
         const executionId = resp.data.execution_id;
-        this.rootStore.router.goTo(routes.yosk, {id: executionId}, this.rootStore)
+        this.rootStore.routerStore.router.navigate(`yosk/${executionId}`);
     }
 
     @action

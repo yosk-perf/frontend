@@ -6,7 +6,7 @@ class RootStore {
     constructor() {
         this.yosksStore = new YosksStore(this);
         this.routesStore = new RoutesStore(this);
-        Object.assign(this, new RoutersStore(this));
+        this.routerStore = new RoutersStore(this);
         console.log(this, 'mobx store inited!');
     }
 }

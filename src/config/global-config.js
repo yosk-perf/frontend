@@ -9,4 +9,12 @@ export default class GlobalConfig {
 
         return '';
     }
+
+    static get ROUTER_CONFIG () {
+        return {
+            USE_HASH: false,
+            HASH: null,
+            ROOT: ''
+        };
+    }
 }
