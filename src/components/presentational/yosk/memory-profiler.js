@@ -9,7 +9,9 @@ class MemoryProfiler extends Component {
         const {yosk} = this.props.yosksStore;
         const {memoryProfiler} = yosk;
         return memoryProfiler ?
-            <pre style={{overflow: 'scroll'}} className="MemoryProfiler-text">{memoryProfiler.text}</pre>
+            <div>
+                <pre style={{overflow: 'scroll'}} className="MemoryProfiler-text">{memoryProfiler.text}</pre>
+            </div>
             : <Skeleton active={true}/>
     }
 }
